@@ -28,8 +28,8 @@ var self = this;
                     <?js } ?>
                 </td>
                 <td>
-                <?js if (data.summary) { ?>
-                <?js= summary ?>
+                <?js if (data.description) { ?>
+                <?js= description ?>
                 <?js= this.partial('details.tmpl', data) ?>
                 <?js } else { ?>
                     <?js= this.partial('details.tmpl', data) ?>

@@ -388,7 +388,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
         });
 
         if (itemsNav !== '') {
-            nav += '<h3 class="navHeading">' + itemHeading + '</h3><ul class="nav">' + itemsNav + '</ul>';
+            nav += '<h3>' + itemHeading + '</h3><ul class="nav">' + itemsNav + '</ul>';
         }
     }
 
@@ -420,7 +420,7 @@ function linktoExternal(longName, name) {
  */
 
 function buildNav(members) {
-    var nav = '';
+    var nav = '<h3><a href="index.html">Home</a></h3>';
     var seen = {};
     var seenTutorials = {};
     var docdash = env && env.conf && env.conf.docdash || {};
@@ -465,7 +465,7 @@ function buildNav(members) {
             nav += '<h3>' + linkto('global', 'Global') + '</h3>';
         }
         else {
-            nav += '<h3 class="navHeading">Globals</h3><ul>' + globalNav + '</ul>';
+            nav += '<h3>Globals</h3><ul>' + globalNav + '</ul>';
         }
     }
 
@@ -697,7 +697,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     var files = find({kind: 'file'});
     var packages = find({kind: 'package'});
 
-    generate('', 'Home',
+    generate('', 'High Fidelity API Reference',
         packages.concat(
             [{kind: 'mainpage', readme: opts.readme, longname: (opts.mainpagetitle) ? opts.mainpagetitle : 'Main Page'}]
         ).concat(files),

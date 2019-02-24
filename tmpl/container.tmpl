@@ -16,57 +16,57 @@
 <?js } else if (doc.kind === 'source') { ?>
     <?js= self.partial('source.tmpl', doc) ?>
 <?js } else { ?>
-    <div class="apiLinks"> | 
+    <div class="apiLinks"> •    
         <?js
             var classes = self.find({kind: 'class', memberof: doc.longname});
             if (!isGlobalPage && classes && classes.length) {
         ?>
-            <a href="#class">Classes</a> | 
+            <a href="#class">Classes</a> • 
         <?js } ?>
          <?js
             var properties = doc.properties;
             if (properties && properties.length && properties.forEach) {
         ?>
-            <a href="#props">Properties</a> | 
+            <a href="#props">Properties</a> • 
         <?js } ?>
         <?js
             var methods = self.find({kind: 'function', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
             if (methods && methods.length && methods.forEach) {
         ?>
-            <a href="#method">Methods</a> | 
+            <a href="#method">Methods</a> • 
         <?js } ?>
         <?js
             var signals = self.find({kind: 'signal', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
             if (signals && signals.length && signals.forEach) {
         ?>
-            <a href="#signal">Signals</a> | 
+            <a href="#signal">Signals</a> • 
         <?js } ?>
         <?js
             var typedefs = self.find({kind: 'typedef', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
             if (typedefs && typedefs.length && typedefs.forEach) {
         ?>
-            <a href="#typeDef">Type Definitions</a> | 
+            <a href="#typeDef">Type Definitions</a> • 
         <?js } ?>
         <?js
             var methods = self.find({kind: 'function', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
             if (methods && methods.length && methods.forEach) {
         ?>
-            <a href="#methodDetails">Method Details</a> | 
+            <a href="#methodDetails">Method Details</a> • 
         <?js } ?>
         <?js
             var signals = self.find({kind: 'signal', memberof: isGlobalPage ? {isUndefined: true} : doc.longname});
             if (signals && signals.length && signals.forEach) {
         ?>
-            <a href="#signalDetails">Signal Details</a> | 
+            <a href="#signalDetails">Signal Details</a> •  
         <?js } ?>
     </div>
 
     <section>
     <article>
         <div class="container-overview">
-             <h3>Description</h3>
             <?js if (doc.kind === 'module' && doc.modules) { ?>
                 <?js if (doc.description) { ?>
+                    <h3>Description</h3>
                     <p><?js= doc.description ?></p>
                 <?js } ?>
 
@@ -74,6 +74,7 @@
                     <?js= self.partial('methodList.tmpl', module) ?>
                 <?js }) ?>
             <?js } else if (doc.kind === 'class' || (doc.kind === 'namespace' && doc.signature)) { ?>
+                <h3>Description</h3>
                 <p><?js= doc.description ?></p>
                 <table>
                     <thead>
@@ -85,7 +86,7 @@
                         <tr>
                             <td><code><?js= (doc.kind === 'class' ? 'new ' : '') + doc.name + (doc.signature || '') ?></code><p />
                             <?js if (doc.params) { ?>
-                                <h3 class="paramHeading">Parameters:</h3>
+                                <h3 class="paramHeading">Parameters</h3>
                                     <?js= self.partial('params.tmpl', doc.params) ?>
                             <?js } ?>
                         </tr>
@@ -94,6 +95,7 @@
                  <?js= self.partial('details.tmpl', doc) ?>
 
             <?js } else { ?>
+                <h3>Description</h3>
                 <?js if (doc.description) { ?>
                     <p><?js= doc.description ?></p>
                 <?js } ?>

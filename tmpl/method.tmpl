@@ -26,7 +26,7 @@ var self = this;
                             <?js= this.partial('details.tmpl', data) ?>
                         </p>
                     <?js } else { ?>
-                        <p style="color:red;">TODO (Placeholder Text): Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p style="color:red;">&nbsp;</p>
                     <?js } ?>                    
 
                     <?js if (data.exceptions && exceptions.length) { ?>
@@ -44,7 +44,7 @@ var self = this;
                     
 
                     <?js if (data.params && params.length && !data.hideconstructor) { ?>
-                        <h3 class="subHeading">Parameters:</h3>
+                        <h3 class="subHeading">Parameters</h3>
                         <?js= this.partial('params.tmpl', params) ?>
                     <?js } ?>
                     <?js if (data.examples && examples.length) { ?>
